@@ -1,0 +1,15 @@
+#!/bin/sh
+# fightcade client launcher for Linux and OSX
+
+cd "${0%/*}"
+
+OS=$(uname -s)
+echo "$OS" |grep "^Darwin$" >/dev/null
+if [ $? -eq 0 ]; then
+	# make sure blitter is set to Experimental
+	sed -i '' -e 's/nVidSelect.*/nVidSelect 3/' ~/ggpofba-ng.bkp.ini 2>/dev/null
+fi
+
+. ggpo/scripts/shell-functions.sh
+find_python
+${PYTHON} ./main.py 2>/dev/null &

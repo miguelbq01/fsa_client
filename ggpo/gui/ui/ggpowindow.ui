@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>810</width>
+    <height>708</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FightCade</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>assets/icon-128.png</normaloff>assets/icon-128.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <property name="leftMargin">
+     <number>3</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>3</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QSplitter" name="uiSplitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QTreeWidget" name="uiChannelsTree">
+       <column>
+        <property name="text">
+         <string notr="true">#</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string notr="true">Game</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+        </property>
+       </column>
+      </widget>
+      <widget class="QWidget" name="layoutWidget">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="bottomMargin">
+         <number>3</number>
+        </property>
+        <item>
+         <widget class="QTextBrowser" name="uiChatHistoryTxtB">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="openExternalLinks">
+           <bool>false</bool>
+          </property>
+          <property name="openLinks">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="CompletionLineEdit" name="uiChatInputEdit"/>
+          </item>
+          <item>
+           <widget class="QToolButton" name="uiEmoticonTbtn">
+            <property name="text">
+             <string>:)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="uiAfkChk">
+            <property name="text">
+             <string>away</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTableView" name="uiPlayersTableV"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>810</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAction">
+    <property name="title">
+     <string>&amp;Action</string>
+    </property>
+    <addaction name="uiAwayAct"/>
+    <addaction name="uiFocusOnChatAct"/>
+    <addaction name="uiEmoticonAct"/>
+    <addaction name="uiClearChatHistoryAct"/>
+    <addaction name="separator"/>
+    <addaction name="uiToggleSidebarAction"/>
+    <addaction name="uiContractChannelSidebarAct"/>
+    <addaction name="uiExpandChannelSidebarAct"/>
+    <addaction name="separator"/>
+    <addaction name="uiContractPlayerListAct"/>
+    <addaction name="uiExpandPlayerListAct"/>
+    <addaction name="separator"/>
+    <addaction name="uiQuitAct"/>
+   </widget>
+   <widget class="QMenu" name="menuSetting">
+    <property name="title">
+     <string>S&amp;ettings</string>
+    </property>
+    <widget class="QMenu" name="uiThemeMenu">
+     <property name="title">
+      <string>&amp;Theme</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="uiSmoothingMenu">
+     <property name="title">
+      <string>Smoothing / Input &amp;lag</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menuLogging">
+     <property name="title">
+      <string>Logging</string>
+     </property>
+     <addaction name="uiLogChatAct"/>
+     <addaction name="uiLogPlayHistoryAct"/>
+     <addaction name="separator"/>
+     <addaction name="uiDebugLogAct"/>
+    </widget>
+    <widget class="QMenu" name="uiChallengeSoundMenu">
+     <property name="title">
+      <string>Challenge Sound</string>
+     </property>
+     <addaction name="uiMuteChallengeSoundAct"/>
+     <addaction name="uiLocateCustomChallengeSoundAct"/>
+     <addaction name="separator"/>
+    </widget>
+    <widget class="QMenu" name="uiDesktopCompositionMenu">
+     <property name="title">
+      <string>Desktop Composition</string>
+     </property>
+     <addaction name="uiCompositionEnableAct"/>
+     <addaction name="uiCompositionDisableAct"/>
+    </widget>
+    <addaction name="uiMuteNotifySoundAct"/>
+    <addaction name="uiChallengeSoundMenu"/>
+    <addaction name="uiThemeMenu"/>
+    <addaction name="uiSmoothingMenu"/>
+    <addaction name="uiDesktopCompositionMenu"/>
+    <addaction name="uiFontAct"/>
+    <addaction name="uiCustomEmoticonsAct"/>
+    <addaction name="separator"/>
+    <addaction name="uiLocateROMsAct"/>
+    <addaction name="separator"/>
+    <addaction name="uiNotifyPlayerStateChangeAct"/>
+    <addaction name="uiShowCountryFlagInChatAct"/>
+    <addaction name="uiShowTimestampInChatAct"/>
+    <addaction name="uiHideInGameChatAct"/>
+    <addaction name="uiDisableAutoColorNicks"/>
+    <addaction name="uiHideGamesWithoutRomAct"/>
+    <addaction name="uiFilterFavoriteLobbies"/>
+    <addaction name="menuLogging"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="uiGNGWebAct"/>
+    <addaction name="actionReport_an_issue"/>
+    <addaction name="separator"/>
+    <addaction name="uiAboutAct"/>
+   </widget>
+   <addaction name="menuAction"/>
+   <addaction name="menuSetting"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="uiStatusbar"/>
+  <action name="uiClearChatHistoryAct">
+   <property name="text">
+    <string>Clear chat his&amp;tory</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="uiAwayAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Away from k&amp;eyboard</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="uiQuitAct">
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="uiMuteChallengeSoundAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Mute Challenge Sound</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="uiMuteNotifySoundAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Mute Notify Sound</string>
+   </property>
+  </action>
+  <action name="uiFontAct">
+   <property name="text">
+    <string>&amp;Font</string>
+   </property>
+  </action>
+  <action name="uiAboutAct">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="uiStrevivalAct">
+   <property name="text">
+    <string>Strategy &amp;&amp; &amp;News</string>
+   </property>
+  </action>
+  <action name="uiHitboxViewerAct">
+   <property name="text">
+    <string>Hitbox &amp;Viewer</string>
+   </property>
+  </action>
+  <action name="uiSafejumpGuideAct">
+   <property name="text">
+    <string>&amp;Safejump Guide</string>
+   </property>
+  </action>
+  <action name="uiMatchVideosAct">
+   <property name="text">
+    <string>&amp;Match Videos</string>
+   </property>
+  </action>
+  <action name="uiSRKForumAct">
+   <property name="text">
+    <string>Shoryuken &amp;Forum</string>
+   </property>
+  </action>
+  <action name="uiSRKWikiAct">
+   <property name="text">
+    <string>Wiki (English)</string>
+   </property>
+  </action>
+  <action name="uiJPWikiAct">
+   <property name="text">
+    <string>Wiki (Japanese)</string>
+   </property>
+  </action>
+  <action name="uiGNGThemeAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;FightCade</string>
+   </property>
+  </action>
+  <action name="uiDarkThemeAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Dark Orange</string>
+   </property>
+  </action>
+  <action name="uiDebugLogAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Debug &amp;Log</string>
+   </property>
+  </action>
+  <action name="uiEmoticonAct">
+   <property name="text">
+    <string>&amp;Insert Emoticon</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="uiLocateGgpofbaAct">
+   <property name="text">
+    <string>&amp;Locate ggpofba-ng.exe</string>
+   </property>
+  </action>
+  <action name="uiLocateROMsAct">
+   <property name="text">
+    <string>Locate &amp;ROMs Folder</string>
+   </property>
+  </action>
+  <action name="uiLocateGeommdbAct">
+   <property name="text">
+    <string>Locate &amp;GeoIP mmdb</string>
+   </property>
+  </action>
+  <action name="uiNotifyPlayerStateChangeAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Notify Player State Change</string>
+   </property>
+  </action>
+  <action name="uiFocusOnChatAct">
+   <property name="text">
+    <string>Foc&amp;us on chat</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="uiToggleSidebarAction">
+   <property name="text">
+    <string>To&amp;ggle Channel Sidebar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="uiExpandChannelSidebarAct">
+   <property name="text">
+    <string>&amp;+ Expand Channel Sidebar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+=</string>
+   </property>
+  </action>
+  <action name="uiContractChannelSidebarAct">
+   <property name="text">
+    <string>&amp;- Contract Channel Sidebar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="uiContractPlayerListAct">
+   <property name="text">
+    <string>&amp;&gt; Contract Player List</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+.</string>
+   </property>
+  </action>
+  <action name="uiExpandPlayerListAct">
+   <property name="text">
+    <string>&amp;&lt; Expand Player List</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+,</string>
+   </property>
+  </action>
+  <action name="uiLocateUnsupportedSavestatesDirAct">
+   <property name="text">
+    <string>Locate &amp;Unsupported Savestates Directory</string>
+   </property>
+  </action>
+  <action name="uiSyncUnsupportedSavestatesAct">
+   <property name="text">
+    <string>S&amp;ync Unsupported Savestates</string>
+   </property>
+  </action>
+  <action name="uiSelectUnsupportedSavestateAct">
+   <property name="text">
+    <string>&amp;Select Unsupported Savestate</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="uiFireThemeAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Fire</string>
+   </property>
+  </action>
+  <action name="uiCustomQssFileAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Custom Qss File</string>
+   </property>
+  </action>
+  <action name="uiNormalThemeAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Normal</string>
+   </property>
+  </action>
+  <action name="action0">
+   <property name="text">
+    <string>0</string>
+   </property>
+  </action>
+  <action name="uiCustomEmoticonsAct">
+   <property name="text">
+    <string>Custom &amp;Emoticons</string>
+   </property>
+  </action>
+  <action name="uiShowCountryFlagInChatAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Country Flag in Chat</string>
+   </property>
+  </action>
+  <action name="uiDisableAutoAnnounceAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Disable auto announce in unsupported room</string>
+   </property>
+  </action>
+  <action name="uiHideGamesWithoutRomAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Hide Games with Missing ROMs</string>
+   </property>
+  </action>
+  <action name="uiShowTimestampInChatAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Timestamp in Chat</string>
+   </property>
+  </action>
+  <action name="uiDisableAutoColorNicks">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Disable auto-color of Nicknames</string>
+   </property>
+  </action>
+  <action name="uiLocateCustomChallengeSoundAct">
+   <property name="text">
+    <string>Custom Challenge Sound</string>
+   </property>
+  </action>
+  <action name="uiLogChatAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Chat history</string>
+   </property>
+  </action>
+  <action name="uiLogPlayHistoryAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Play history</string>
+   </property>
+  </action>
+  <action name="uiGNGWebAct">
+   <property name="text">
+    <string>FightCade website</string>
+   </property>
+  </action>
+  <action name="uiFilterFavoriteLobbies">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Filter Favorite Lobbies</string>
+   </property>
+  </action>
+  <action name="uiCompositionEnableAct">
+   <property name="text">
+    <string>Enable</string>
+   </property>
+  </action>
+  <action name="uiCompositionDisableAct">
+   <property name="text">
+    <string>Disable (Recommended)</string>
+   </property>
+  </action>
+  <action name="actionReport_an_issue">
+   <property name="text">
+    <string>Report an issue</string>
+   </property>
+  </action>
+  <action name="uiHideInGameChatAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Hide in-game Chat on Lobby</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CompletionLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>ggpo/gui/completionlineedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>uiQuitAct</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>404</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>uiClearChatHistoryAct</sender>
+   <signal>triggered()</signal>
+   <receiver>uiChatHistoryTxtB</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>404</x>
+     <y>337</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>uiAwayAct</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>uiAfkChk</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>500</x>
+     <y>660</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>uiAfkChk</sender>
+   <signal>clicked()</signal>
+   <receiver>uiAwayAct</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>500</x>
+     <y>660</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>uiFocusOnChatAct</sender>
+   <signal>triggered()</signal>
+   <receiver>uiChatInputEdit</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>355</x>
+     <y>668</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
