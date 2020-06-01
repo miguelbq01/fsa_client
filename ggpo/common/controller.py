@@ -182,7 +182,8 @@ class Controller(QtCore.QObject):
             if self.channelport==None:
                 self.channelport = 7000
                 Settings.setValue(Settings.PORT, int(self.channelport))
-            self.tcpSock.connect(('localhost', int(self.channelport),))
+            self.tcpSock.connect(('34.207.190.149', int(self.channelport),))
+            # self.tcpSock.connect(('localhost', int(self.channelport),))
             # self.tcpSock.connect(('ggpo-ng.com', int(self.channelport),))
             self.tcpConnected = True
         except Exception:

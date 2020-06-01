@@ -134,7 +134,8 @@ def udp_proxy(args,q):
 
 	master_port = int(args[0].split(",")[3])
 	# master = ("ggpo-ng.com", master_port)
-	master = ("localhost", master_port)
+	# master = ("localhost", master_port)
+	master = ("34.207.190.149", master_port)
 	l_sockfd = socket.socket( socket.AF_INET, socket.SOCK_DGRAM )
 	bindok=0
 	try:
